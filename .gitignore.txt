@@ -1,8 +1,0 @@
-﻿__pycache__
-.idea
-.env
-.vscode/
-
-# Ignore virtual environment
-venv/
-myenv/
