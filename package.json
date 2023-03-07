@@ -1,0 +1,25 @@
+{
+  "name": "slavic-fret",
+  "version": "0.0.1",
+  "description": "SIPI MIREA Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/International-Slavian-Slaves/Slavic-Fret.git"
+  },
+  "keywords": [
+    "flask",
+    "web",
+    "sqlite3",
+    "ci/cd"
+  ],
+  "author": "worrum",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/International-Slavian-Slaves/Slavic-Fret/issues"
+  },
+  "homepage": "https://github.com/International-Slavian-Slaves/Slavic-Fret#readme"
+}
