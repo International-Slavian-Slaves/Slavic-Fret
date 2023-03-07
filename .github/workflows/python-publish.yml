@@ -70,10 +70,10 @@ jobs:
           push: true
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/slavic-fret:latest
-            user/slavic-fret:latest
-            user/slavic-fret:0.0.1
-            ghcr.io/user/slavic-fret:latest
-            ghcr.io/user/slavic-fret:0.0.1
+            worrum/slavic-fret:latest
+            worrum/slavic-fret:0.0.1
+            ghcr.io/worrum/slavic-fret:latest
+            ghcr.io/worrum/slavic-fret:0.0.1
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
       -
