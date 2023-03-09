@@ -2,7 +2,10 @@
 .idea
 .env
 .vscode/
-
+SQLite.db
+SQLite.sqbpro
+SQLite.db.sql
+SQLite.db-journal
 # Ignore virtual environment
 venv/
 myenv/

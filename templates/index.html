@@ -10,5 +10,10 @@
     <h1>Welcome to our team Flask app!</h1>
     <p>This is a simple Flask app using Python.</p>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <ul>
+        {% for user in users %}
+        <li>{{ user["first_name"] }} - {{ user["status"] }}</li>
+        {% endfor %}
+    </ul>
   </body>
 </html>

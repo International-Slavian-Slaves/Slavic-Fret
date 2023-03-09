@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+    <form action="/registration" method="post">
+        {{ form.hidden_tag() }}
+        <p>{{ form.f_name.label() }} {{ form.f_name() }}</p>
+        <p>{{ form.s_name.label() }} {{ form.s_name() }}</p>
+        <p>{{ form.t_name.label() }} {{ form.t_name() }}</p>
+        <p>{{ form.rf_id.label() }} {{ form.rf_id() }}</p>
+        <p>{{ form.submit() }}</p>
+    </form>
 </body>
 </html>

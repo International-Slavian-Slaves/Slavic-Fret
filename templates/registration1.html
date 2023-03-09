@@ -6,8 +6,6 @@
 </head>
 <body>
     <form action="/registration" method="post">
-        {{ form.hidden_tag() }}
-        <p>{{ form.f_name.label() }} {{ form.f_name() }}</p>
         <p><label>Имя:</label><input type="text" name="first_name" value="" required/></p>
         <p><label>Фамилия:</label><input type="text" name="last_name" value="" required/></p>
         <p><label>Отчество:</label><input type="text" name="middle_name" value="" required/></p>
