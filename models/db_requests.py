@@ -29,4 +29,17 @@ def insert_person_data(request_data):
         connection.execute(insertion_query)
         connection.commit()
 
+
 # insert_data_person({'RF_ID':'112343434', 'Per_Fname':'Иван', 'Per_Sname': 'Иванович', 'Per_Tname': 'Иванов'})
+
+def select_recent_passes():
+    with engine.connect() as connection:
+        logger.debug("entered")
+        selection_query = db.select(person.join(passes, person.columns.RF_ID == passes.columns.RF_ID)) \
+            .order_by(db.desc(passes.columns.Pass_Date)) \
+            .limit(3)
+        result = connection.execute(selection_query)
+        return result.fetchall()
+
+
+print(select_recent_passes())
