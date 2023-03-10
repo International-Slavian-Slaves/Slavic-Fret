@@ -1,29 +1,27 @@
 from flask import Flask, render_template, request
 from local_logging import logger
 from views.form import RegistrationForm
-from controllers.controller import register_user
+from controllers.controllers import register_user, get_recent_passes
 
 app = Flask(__name__)
 # TODO: replace key into env, create .env file (for Yuri)
 app.secret_key = "23123145435667"
 
-users = [{"first_name": "Иван", "second_name": "Иванов", "status": "inside"},
-         {"first_name": "Зиновий", "second_name": "Иванов", "status": "outside"}]  # array created to try jinja
-
 
 @app.route("/")  # theese funcs will be added to views later
 @app.route("/index")
 def index():
-    return render_template('index.html', users=users)
+    passes_data = get_recent_passes()
+    return render_template('index.html', passes_data=passes_data)
 
 
 @app.route("/registration", methods=['GET', 'POST'])
-def registartion():
+def registration():
     logger.debug(request.method)
     if request.method == 'POST':
-        logger.debug(request.form)
-        register_user(request.form)
-        logger.info(request.form)
+        request_data = request.form
+        register_user(request_data)
+        logger.info(request_data)
     return render_template('registration.html', form=RegistrationForm())
 
 

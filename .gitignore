@@ -6,6 +6,8 @@ SQLite.db
 SQLite.sqbpro
 SQLite.db.sql
 SQLite.db-journal
+models/SQLite.db
+models/SQLite.sqbpro
 # Ignore virtual environment
 venv/
 myenv/
