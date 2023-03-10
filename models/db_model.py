@@ -10,8 +10,8 @@ metadata = db.MetaData()
 person = db.Table('person', metadata,
                   db.Column('RF_ID', db.TEXT, unique=True, primary_key=True),
                   db.Column('Per_Fname', db.TEXT),
-                  db.Column('Per_Sname', db.TEXT),
-                  db.Column('Per_Tname', db.TEXT)
+                  db.Column('Per_Mname', db.TEXT),
+                  db.Column('Per_Lname', db.TEXT)
                   )
 
 passes = db.Table('passes', metadata,

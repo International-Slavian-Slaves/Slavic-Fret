@@ -12,10 +12,10 @@ def make_dict(request_data):
         edited_data = ImmutableMultiDict.to_dict(request_data)
         logger.debug(edited_data)
         data_dict = dict()
-        data_dict['RF_ID'] = edited_data['f_name']
-        data_dict['Per_Fname'] = edited_data['s_name']
-        data_dict['Per_Sname'] = edited_data['t_name']
-        data_dict['Per_Tname'] = edited_data['rf_id']
+        data_dict['RF_ID'] = edited_data['rf_id']
+        data_dict['Per_Fname'] = edited_data['f_name']
+        data_dict['Per_Mname'] = edited_data['m_name']
+        data_dict['Per_Lname'] = edited_data['l_name']
         logger.debug(data_dict)
         return data_dict
 
