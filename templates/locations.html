@@ -8,5 +8,6 @@
     {% for location in location_data %}
         <p>{{ location[1] }} {{ location[2] }}: {{ location[5] }}</p>
     {% endfor %}
+    <a href="{{ url_for('views.index') }}">Вернуться на главную страницу</a><br>
 </body>
 </html>

@@ -15,5 +15,7 @@
     {% for pass in passes_data %}
       <p>{{ pass[3] }} {{ pass[1] }} {{ pass[2] }} {{ pass[6] }}</p>
     {% endfor %}
+    <a href="{{ url_for('views.locate_users') }}">Посмотреть местонахождение сотрудников</a><br>
+    <a href="{{ url_for('views.register_user') }}">Зарегистрировать сотрудника</a>
   </body>
 </html>
