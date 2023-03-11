@@ -19,7 +19,7 @@ def index():
 
 
 @views.route("/registration", methods=['GET', 'POST'])
-def register_user():
+def registration():
     logger.debug(request.method)
     if request.method == 'POST':
         request_data = request.form
