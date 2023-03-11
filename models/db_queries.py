@@ -1,4 +1,5 @@
 import sqlalchemy as db
+import sqlite3 as sqlite
 from models.db_model import person, passes
 from local_logging import logger
 from werkzeug.datastructures import ImmutableMultiDict
@@ -25,8 +26,6 @@ def insert_person_data(request_data):
         connection.commit()
 
 
-# insert_data_person({'RF_ID':'112343434', 'Per_Fname':'Иван', 'Per_Sname': 'Иванович', 'Per_Tname': 'Иванов'})
-
 def select_recent_passes():
     with engine.connect() as connection:
         selection_query = db.select(person.join(passes, person.columns.RF_ID == passes.columns.RF_ID)) \
@@ -35,4 +34,9 @@ def select_recent_passes():
         return result.fetchmany(2)
 
 
-# print(select_recent_passes())
+def select_locations():
+    with sqlite.connect('SQLite.db') as connection:
+        cursor = connection.cursor()
+        query = "SELECT * FROM GeneralViewDudes;"
+        result = cursor.execute(query)
+        return result.fetchall()

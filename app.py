@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from local_logging import logger
 from views.form import RegistrationForm
-from controllers.controllers import register_user, get_recent_passes, get_fun
+from controllers.controllers import register_user, get_recent_passes, get_fun, get_locations
 
 app = Flask(__name__)
 # TODO: replace key into env, create .env file (for Yuri)
@@ -24,9 +24,17 @@ def registration():
         logger.info(request_data)
     return render_template('registration.html', form=RegistrationForm())
 
+
 @app.route("/fun")
 def kill_yourself():
-    return get_fun()
+    msg, result = get_fun()
+    return render_template("easter_result.html", msg=msg, result=result)
+
+
+@app.route("/locations")
+def locate_users():
+    location_data = get_locations()
+    return render_template("locations.html", location_data=location_data)
 
 
 if __name__ == "__main__":

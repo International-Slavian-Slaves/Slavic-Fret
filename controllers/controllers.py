@@ -1,4 +1,4 @@
-from models.db_requests import insert_person_data, select_recent_passes
+from models.db_queries import insert_person_data, select_recent_passes, select_locations
 from models.kill_yourself import make_fun
 from local_logging import logger
 
@@ -13,3 +13,7 @@ def get_recent_passes():
 
 def get_fun():
     return make_fun()
+
+
+def get_locations():
+    return select_locations()

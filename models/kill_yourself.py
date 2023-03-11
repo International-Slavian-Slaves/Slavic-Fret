@@ -15,6 +15,6 @@ def make_fun():
                 delete_query = db.delete(table_name)
                 connection.execute(delete_query)
                 connection.commit()
-            return "Fun made successfully"
+            return "Fun made successfully", True
         else:
-            return "Trying to make fun. You're lucky"
+            return "Trying to make fun. You're lucky", False
