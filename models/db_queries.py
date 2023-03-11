@@ -26,12 +26,12 @@ def insert_person_data(request_data):
         connection.commit()
 
 
-def select_recent_passes():
+def select_recent_passes(limit):
     with engine.connect() as connection:
         selection_query = db.select(person.join(passes, person.columns.RF_ID == passes.columns.RF_ID)) \
             .order_by(db.desc(passes.columns.Pass_Date))
         result = connection.execute(selection_query)
-        return result.fetchmany(2)
+        return result.fetchmany(limit)
 
 
 def select_locations():

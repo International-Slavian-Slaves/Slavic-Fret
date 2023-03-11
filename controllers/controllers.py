@@ -7,8 +7,8 @@ def register_user(request_data):
     insert_person_data(request_data)
 
 
-def get_recent_passes():
-    return select_recent_passes()
+def get_recent_passes(limit):
+    return select_recent_passes(limit)
 
 
 def get_fun():

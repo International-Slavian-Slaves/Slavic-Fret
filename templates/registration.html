@@ -7,9 +7,9 @@
 <body>
     <form action="/registration" method="post">
         {{ form.hidden_tag() }}
+        <p>{{ form.l_name.label() }} {{ form.l_name() }}</p>
         <p>{{ form.f_name.label() }} {{ form.f_name() }}</p>
         <p>{{ form.m_name.label() }} {{ form.m_name() }}</p>
-        <p>{{ form.l_name.label() }} {{ form.l_name() }}</p>
         <p>{{ form.rf_id.label() }} {{ form.rf_id() }}</p>
         <p>{{ form.submit() }}</p>
     </form>

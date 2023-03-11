@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   </head>
   <body>
+    <form action="/index" method="post">
+        {{ form.hidden_tag() }}
+        <p>{{ form.amount.label() }} {{ form.amount() }}</p>
+        <p>{{ form.submit() }}</p>
+    </form>
     {% for pass in passes_data %}
       <p>{{ pass[3] }} {{ pass[1] }} {{ pass[2] }} {{ pass[6] }}</p>
     {% endfor %}
