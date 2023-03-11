@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from local_logging import logger
 from views.form import RegistrationForm
-from controllers.controllers import register_user, get_recent_passes
+from controllers.controllers import register_user, get_recent_passes, get_fun
 
 app = Flask(__name__)
 # TODO: replace key into env, create .env file (for Yuri)
@@ -23,6 +23,10 @@ def registration():
         register_user(request_data)
         logger.info(request_data)
     return render_template('registration.html', form=RegistrationForm())
+
+@app.route("/fun")
+def kill_yourself():
+    return get_fun()
 
 
 if __name__ == "__main__":
