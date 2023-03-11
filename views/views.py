@@ -39,6 +39,5 @@ def locate_users():
     location_data = get_locations()
     return render_template("locations.html", location_data=location_data)
 
-@views.errorhandler(404)
-def handle404(error):
-    return "Вы неправильно указали URL"
+
+
