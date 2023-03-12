@@ -41,12 +41,13 @@ def select_locations():
         result = cursor.execute(query)
         return result.fetchall()
 
+
 def select_month_time(id):
-    with engine.connect() as connection:
-        selection_query = db.select(person.join(passes, person.columns.RF_ID == passes.columns.RF_ID)) \
-            .where(person.columns.RF_ID == id) \
-            .order_by(passes.columns.Pass_Date)
-        result = connection.execute(selection_query)
+    with sqlite.connect('SQLite.db') as connection:
+        cursor = connection.cursor()
+        query = "SELECT * FROM MonthPasses WHERE RF_ID = ?;"
+        result = cursor.execute(query, (id,))
         return result.fetchall()
+
 
 print(select_month_time("1233244"))
