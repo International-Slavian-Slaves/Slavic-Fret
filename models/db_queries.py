@@ -40,3 +40,13 @@ def select_locations():
         query = "SELECT * FROM GeneralViewDudes;"
         result = cursor.execute(query)
         return result.fetchall()
+
+def select_month_time(id):
+    with engine.connect() as connection:
+        selection_query = db.select(person.join(passes, person.columns.RF_ID == passes.columns.RF_ID)) \
+            .where(person.columns.RF_ID == id) \
+            .order_by(passes.columns.Pass_Date)
+        result = connection.execute(selection_query)
+        return result.fetchall()
+
+print(select_month_time("1233244"))
