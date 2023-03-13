@@ -56,4 +56,11 @@ def select_month_time(id):
             return "Данные не найдены"
 
 
-print(select_month_time("1233244"))
+def select_admin(id):
+    with engine.connect() as connection:
+        selection_query = db.select(person) \
+            .where(person.columns.RF_ID == id)
+        result = connection.execute(selection_query)
+        return result.fetchone()
+
+print(select_admin("1111"))
