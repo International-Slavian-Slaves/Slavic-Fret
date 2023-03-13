@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My Flask App</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Title</title><link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   </head>
   <body>
+  <header class="header">
+      <a href="{{ url_for('views.locate_users') }}" class="button">
+          Посмотреть местонахождение сотрудников
+      </a>
+      <a href="{{ url_for('views.registration') }}" class="button">
+          Зарегистрировать сотрудника
+      </a>
+      <a href="{{ url_for('admin.get_month_time') }}" class="button">
+          Посмотреть количество часов проведнных сотрудником на работе
+      </a>
+  </header>
     {% for message in get_flashed_messages() %}
-    <p>{{ message }}</p>
+    <div>{{ message }}</div>
     {% endfor %}
     <form action="/index" method="post">
         {{ form.hidden_tag() }}
-        <p>{{ form.amount.label() }} {{ form.amount() }}</p>
-        <p>{{ form.submit() }}</p>
+        <div class ="number-input">{{ form.amount.label() }} {{ form.amount(class_="number") }}</div>
+        {{ form.submit(class_="btn") }}
     </form>
     {% for pass in passes_data %}
-      <p>{{ pass[3] }} {{ pass[1] }} {{ pass[2] }} {{ pass[6] }}</p>
+        <div class="passes">
+            <p>{{ pass[3] }} {{ pass[1] }} {{ pass[2] }}</p> <p>{{ pass[6] }}</p>
+        </div>
     {% endfor %}
-    <a href="{{ url_for('views.locate_users') }}">Посмотреть местонахождение сотрудников</a><br>
-    <a href="{{ url_for('views.registration') }}">Зарегистрировать сотрудника</a><br>
-    <a href="{{ url_for('admin.get_month_time') }}">Посмотреть количество часов проведнных сотрудником на работе</a>
   </body>
 </html>
