@@ -6,7 +6,9 @@
 </head>
 <body>
     {% for location in location_data %}
+        {% if location[2] != "Администратор" %}
         <p>{{ location[1] }} {{ location[2] }}: {{ location[5] }}</p>
+        {% endif %}
     {% endfor %}
     <a href="{{ url_for('views.index') }}">Вернуться на главную страницу</a><br>
 </body>

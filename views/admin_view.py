@@ -1,7 +1,6 @@
 from flask import Blueprint
 from flask import render_template, url_for, request, redirect, flash
 from flask_login import login_user, login_required
-
 from controllers.controllers import get_hours, check_admin
 from views.admin_login import AdminLogin
 from views.forms import RF_IDForm, AdminForm
@@ -17,6 +16,7 @@ def login_admin():
         if user and user[0] == "1111":
             userlogin = AdminLogin().create(user)
             login_user(userlogin)
+            flash("Вы успешно авторизовались")
             return redirect(url_for("views.index"))
         else:
             flash("Попытка входа не удалась, попробуйте снова")

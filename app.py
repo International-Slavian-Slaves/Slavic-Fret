@@ -1,6 +1,5 @@
 from flask import Flask, render_template
 from flask_login import LoginManager
-
 from views.admin_login import AdminLogin
 from views.admin_view import admin
 from views.views import views

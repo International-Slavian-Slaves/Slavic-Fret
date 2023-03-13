@@ -12,8 +12,7 @@ def index():
     limit = 10
     if request.method == 'POST':
         logger.info(request.form)
-        data = request.form.to_dict()
-        limit = int(data['amount'])
+        limit = int(request.form['amount'])
     passes_data = get_recent_passes(limit)
     return render_template('index.html', passes_data=passes_data, form=LimitForm())
 

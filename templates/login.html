@@ -13,5 +13,6 @@
     {% for message in get_flashed_messages() %}
     <p>{{ message }}</p>
     {% endfor %}
+    <a href="{{ url_for('views.index') }}">Вернуться на главную страницу</a><br>
 </body>
 </html>

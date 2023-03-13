@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   </head>
   <body>
+    {% for message in get_flashed_messages() %}
+    <p>{{ message }}</p>
+    {% endfor %}
     <form action="/index" method="post">
         {{ form.hidden_tag() }}
         <p>{{ form.amount.label() }} {{ form.amount() }}</p>
@@ -16,6 +19,7 @@
       <p>{{ pass[3] }} {{ pass[1] }} {{ pass[2] }} {{ pass[6] }}</p>
     {% endfor %}
     <a href="{{ url_for('views.locate_users') }}">Посмотреть местонахождение сотрудников</a><br>
-    <a href="{{ url_for('views.registration') }}">Зарегистрировать сотрудника</a>
+    <a href="{{ url_for('views.registration') }}">Зарегистрировать сотрудника</a><br>
+    <a href="{{ url_for('admin.get_month_time') }}">Посмотреть количество часов проведнных сотрудником на работе</a>
   </body>
 </html>
