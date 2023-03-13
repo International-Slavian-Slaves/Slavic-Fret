@@ -5,6 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-
+    <form action="/hours" method="post">
+        {{ form.hidden_tag() }}
+        <p>{{ form.rf_id.label() }} {{ form.rf_id() }}</p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    {{ response }}
 </body>
 </html>

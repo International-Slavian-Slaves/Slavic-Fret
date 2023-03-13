@@ -16,3 +16,8 @@ class RegistrationForm(FlaskForm):
 class LimitForm(FlaskForm):
     amount = IntegerField("Значение: ", validators=[DataRequired(), NumberRange(1, 100)], default=10)
     submit = SubmitField("Вывести")
+
+
+class RF_IDForm(FlaskForm):
+    rf_id = StringField("Значение: ", validators=[DataRequired(), Length(min=2, max=20)], default="")
+    submit = SubmitField("Вывести")

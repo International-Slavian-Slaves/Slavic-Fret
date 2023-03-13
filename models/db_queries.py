@@ -3,7 +3,7 @@ import sqlite3 as sqlite
 from models.db_model import person, passes
 from local_logging import logger
 from werkzeug.datastructures import ImmutableMultiDict
-from count_month_time import create_stack, count_month_time
+from models.count_month_time import create_stack, count_month_time
 
 engine = db.create_engine("sqlite:///SQLite.db")
 
