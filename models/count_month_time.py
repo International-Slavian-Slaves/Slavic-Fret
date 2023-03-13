@@ -7,7 +7,7 @@ def create_stack(query_array):
         pass_datetime = datetime.strptime(tuple[2], "%Y-%m-%d %H:%M:%S")
         pass_dir = tuple[3]
         datetime_tuple = pass_datetime, pass_dir
-        if array or pass_dir != 'out':  # de morgan rule was applied
+        if datetime_stack or pass_dir != 'out':  # de morgan rule was applied
             datetime_stack.append(datetime_tuple)
     return datetime_stack
 
