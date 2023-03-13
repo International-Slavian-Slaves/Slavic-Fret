@@ -3,6 +3,7 @@ import sqlite3 as sqlite
 from models.db_model import person, passes
 from local_logging import logger
 from werkzeug.datastructures import ImmutableMultiDict
+from count_month_time import create_stack, count_month_time
 
 engine = db.create_engine("sqlite:///SQLite.db")
 
@@ -47,7 +48,12 @@ def select_month_time(id):
         cursor = connection.cursor()
         query = "SELECT * FROM MonthPasses WHERE RF_ID = ?;"
         result = cursor.execute(query, (id,))
-        return result.fetchall()
+        data_array = result.fetchall()
+        if data_array:
+            stack = create_stack(data_array)
+            return count_month_time(stack)
+        else:
+            return "Данные не найдены"
 
 
 print(select_month_time("1233244"))
