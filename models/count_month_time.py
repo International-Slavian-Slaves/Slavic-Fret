@@ -1,8 +1,6 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
-array = [(3, 1233244, '2023-03-10 06:21:19', 'in', 'Захар', 'Ильич', 'Иванисенко'),
-         (2, 1233244, '2023-03-10 07:21:34', 'out', 'Захар', 'Ильич', 'Иванисенко')]
 def create_stack(query_array):
     datetime_stack = []
     for tuple in query_array:
@@ -13,9 +11,9 @@ def create_stack(query_array):
             datetime_stack.append(datetime_tuple)
     return datetime_stack
 
+
 def count_month_time(datetime_stack):
     sum = 0
-    delta = 0
     current = None
     while datetime_stack:
         pass_datetime, pass_dir = datetime_stack.pop()
@@ -26,10 +24,4 @@ def count_month_time(datetime_stack):
             sum += delta.total_seconds()
         elif pass_dir == "out":
             current = pass_datetime
-    return sum
-
-
-
-s = create_stack(array)
-sum = count_month_time(s)
-print(sum)
+    return timedelta(seconds=sum).__str__()
