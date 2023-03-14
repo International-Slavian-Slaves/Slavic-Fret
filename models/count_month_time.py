@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 
-a = [(3, 1233244, '2023-03-10 06:21:19', 'in', 'Захар', 'Ильич', 'Иванисенко'), (2, 1233244, '2023-03-10 06:21:32', 'out', 'Захар', 'Ильич', 'Иванисенко')]
+
 def create_stack(query_array):
     datetime_stack = []
     for tuple in query_array:

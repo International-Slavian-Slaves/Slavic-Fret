@@ -1,7 +1,6 @@
 import sqlalchemy as db
 from models.db_model import person, passes
 from random import randint
-from local_logging import logger
 
 engine = db.create_engine("sqlite:///SQLite.db")
 

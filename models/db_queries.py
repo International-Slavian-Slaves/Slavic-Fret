@@ -1,9 +1,8 @@
-import sqlalchemy as db
 import sqlite3 as sqlite
-from models.db_model import person, passes
-from local_logging import logger
+import sqlalchemy as db
 from werkzeug.datastructures import ImmutableMultiDict
 from models.count_month_time import create_stack, count_month_time
+from models.db_model import person, passes
 
 engine = db.create_engine("sqlite:///SQLite.db")
 
@@ -62,5 +61,3 @@ def select_admin(id):
             .where(person.columns.RF_ID == id)
         result = connection.execute(selection_query)
         return result.fetchone()
-
-print(select_admin("1111"))

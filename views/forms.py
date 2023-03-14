@@ -1,8 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, ValidationError, IntegerField
+from wtforms import StringField, SubmitField, IntegerField
 from wtforms.validators import Length, DataRequired, NumberRange
-
-import local_logging
 
 
 class RegistrationForm(FlaskForm):

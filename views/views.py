@@ -6,7 +6,7 @@ from controllers.controllers import register_user, get_recent_passes, get_fun, g
 views = Blueprint('views', __name__, template_folder='..templates')
 
 
-@views.route("/", methods=['GET', 'POST'])  # theese funcs will be added to views later
+@views.route("/", methods=['GET', 'POST'])
 @views.route("/index", methods=['GET', 'POST'])
 def index():
     limit = 10
